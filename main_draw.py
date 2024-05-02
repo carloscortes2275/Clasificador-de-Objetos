@@ -98,7 +98,7 @@ def predict():
     # Combinar el nombre del archivo con el directorio
     filepath = os.path.join(directory, filename)
     # Guardar la imagen
-    x = root.winfo_rootx() + canvas.winfo_x() + 210
+    x = root.winfo_rootx() + canvas.winfo_x() + 250
     y = root.winfo_rooty() + canvas.winfo_y()
     x1 = x + 1100
     y1 = y + 1000
@@ -107,7 +107,7 @@ def predict():
     screenshot = ImageGrab.grab(bbox=(x, y, x1, y1))
     screenshot.save(filepath, format="PNG")
     # Diccionario que mapea los números de clase a las etiquetas de clase
-    class_labels = {0: 'basketball', 1: 'sofa'}
+    class_labels = {0: 'basketball', 1: 'pencil', 2: 'sofa'}
     # Cargar el modelo
     modelo = load_model("D:/Documentos/Clasificacion Inteligente de Datos/Proyecto Reconocimiento de Objetos/modelo/modelo.keras")
     print('Modelo cargado')
@@ -132,15 +132,17 @@ def predict():
 
 root = tk.Tk()
 root.title("Dibujar")
+root['bg'] = 'lightgrey'
+root.attributes('-transparentcolor', 'grey')
 
 ###################################################
 
 # Frame izquierdo Herramientas de dibujo
-left_frame = tk.Frame(root, bg=background1, width=50, height=400)
+left_frame = tk.Frame(root, bg="lightgray", width=50, height=400)
 left_frame.pack(side="left", fill="y")  # No expande
 
 # Herramientas de dibujo en el frame izquierdo
-label = tk.Label(left_frame, text="Herramientas de dibujo\n", justify="left", font=("Arial", 12), bg=background1)
+label = tk.Label(left_frame, text="Herramientas de dibujo\n", justify="left", font=("Arial", 14), bg=background1)
 label.pack()
 
 # Frame para el botón Pencil y el entry de tamaño
@@ -199,14 +201,14 @@ canvas.pack(fill="both", expand=False)
 #########################################################
 
 # Frame derecho Predicción
-right_frame = tk.Frame(root, bg=background3, width=200, height=800)
+right_frame = tk.Frame(root, bg=background1, width=200, height=800)
 right_frame.pack(side="left", fill="both", expand=True)
 
-label = tk.Label(right_frame, text="Predicción de la clase", justify="left", font=("Arial", 16), bg=background3)
+label = tk.Label(right_frame, text="Predicción de la clase", justify="left", font=("Arial", 14), bg=background1)
 label.pack()
 
 # Frame para predecir y reset
-pre_res_frame = tk.Frame(right_frame, bg=background3)
+pre_res_frame = tk.Frame(right_frame, bg=background1)
 pre_res_frame.pack()
 
 save_button = tk.Button(pre_res_frame, text="Resetear Dibujo", command=reset_draw)
@@ -216,10 +218,10 @@ reset_button = tk.Button(pre_res_frame, text="Predecir", command=predict)
 reset_button.pack(side="left", padx=5)
 
 # Frame para la etiqueta y cuadro clase
-save_frame = tk.Frame(right_frame, bg=background3)
+save_frame = tk.Frame(right_frame, bg=background1)
 save_frame.pack()
 
-label = tk.Label(save_frame, text="Clase: " + ObjectClass, wraplength=200, justify="left", font=("Arial", 12), bg=background3)
+label = tk.Label(save_frame, text="Clase: " + ObjectClass, wraplength=200, justify="left", font=("Arial", 12), bg=background1)
 label.pack(side="left", padx=5, pady=20)
 
 canvas.bind("<Button-1>", start_draw)

@@ -2,7 +2,7 @@ import tensorflow as tf
 from keras.layers import Dense,Conv2D,MaxPooling2D,Flatten # type: ignore
 from tensorflow.keras.preprocessing.image import ImageDataGenerator # type: ignore
 
-num_classes = 8
+num_classes = 3 #Número de clases disponibles
 
 # Rutas a los directorios de train, val y test
 train_dir = 'D:/Documentos/Clasificacion Inteligente de Datos/Proyecto Reconocimiento de Objetos/dataset/train'
