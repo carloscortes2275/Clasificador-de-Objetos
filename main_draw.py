@@ -138,7 +138,7 @@ root.attributes('-transparentcolor', 'grey')
 ###################################################
 
 # Frame izquierdo Herramientas de dibujo
-left_frame = tk.Frame(root, bg="lightgray", width=50, height=400)
+left_frame = tk.Frame(root, bg=background1, width=50, height=400)
 left_frame.pack(side="left", fill="y")  # No expande
 
 # Herramientas de dibujo en el frame izquierdo
@@ -191,7 +191,7 @@ color_button.pack(side="left", padx=2, pady=5)
 #########################################################
 
 # Frame central para el lienzo de dibujo
-canvas_frame = tk.Frame(root, bg="lightgray")
+canvas_frame = tk.Frame(root, bg=background1)
 canvas_frame.pack(side="left", fill="both", expand=True)
 
 # Lienzo de dibujo en el frame central

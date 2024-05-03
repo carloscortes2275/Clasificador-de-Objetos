@@ -32,9 +32,6 @@ test_generator = datagen.flow_from_directory(
 
 # Crear modelo
 modelo = tf.keras.models.Sequential([
-    #Flatten(input_shape=(28, 28, 3)),
-    #tf.keras.layers.Dense(units=128, activation='relu'),
-    #tf.keras.layers.Dense(units=10, activation='softmax')
     Conv2D(32, kernel_size=(3, 3), padding='valid', activation='relu', input_shape=(28, 28, 3)),
     MaxPooling2D(pool_size=(2, 2), strides=2, padding='valid'),
     Conv2D(64, kernel_size=(3, 3), padding='valid', activation='relu'),
@@ -45,7 +42,7 @@ modelo = tf.keras.models.Sequential([
     Dense(128, activation='relu'),
     Dense(64, activation='relu'),
     Dense(32, activation='relu'),
-    Dense(num_classes, activation='softmax')  # num_classes es el número de clases en tus datos
+    Dense(num_classes, activation='softmax')  # num_classes es el número de clases
 ])
 
 # Compilar el modelo
